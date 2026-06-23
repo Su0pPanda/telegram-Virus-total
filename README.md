@@ -44,8 +44,3 @@ Automated tests mock Telegram and VirusTotal. Live credentials are only needed f
 
 Uploaded files exist only under `TEMP_DIR` while a check is active and are removed in success and failure paths. SQLite stores completed file summaries keyed by SHA-256 and rate-limit timestamps; it does not store Telegram file content or raw VirusTotal payloads. Logs redact recognized authorization fields and must not include submitted file bytes.
 
-## Docker and Scalingo
-
-Build with `docker build -t vt-telegram-bot .`. The image runs as an unprivileged user and stores both SQLite and temporary uploads under `/app/data`.
-
-For Scalingo, configure `BOT_TOKEN`, `VT_API_KEY`, `DATABASE_PATH=/app/data/bot.sqlite3`, and `TEMP_DIR=/app/data/tmp`. Attach persistent storage for `/app/data`; without it, cached results and rate-limit state reset whenever the container is replaced. Run one bot process per SQLite volume.
