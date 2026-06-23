@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "virustotal-telegram-bot"
+version = "0.1.0"
+description = "Telegram bot for VirusTotal file, URL, and IP checks"
+requires-python = ">=3.12"
+dependencies = [
+    "aiogram>=3.15,<4",
+    "aiohttp>=3.10,<4",
+    "aiosqlite>=0.20,<1",
+    "pydantic-settings>=2.6,<3",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.3,<9",
+    "pytest-asyncio>=0.24,<1",
+    "pytest-cov>=6,<7",
+]
+
+[tool.setuptools.packages.find]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "--strict-markers --strict-config"
+
+[tool.coverage.run]
+branch = true
+source = ["src"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = true
+

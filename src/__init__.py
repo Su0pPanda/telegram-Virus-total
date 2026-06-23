@@ -1,0 +1,2 @@
+"""VirusTotal Telegram bot package."""
+
