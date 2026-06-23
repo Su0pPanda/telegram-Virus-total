@@ -32,4 +32,3 @@ Thumbs.db
 .dockerignore
 AGENTS.md
 /specs/001-virustotal-telegram-bot
-.gitignore
